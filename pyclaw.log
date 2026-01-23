@@ -1,0 +1,6 @@
+2026-01-23 11:50:14,210 pyclaw.fileio INFO CLAW: 366 - Read in solution for time t=200.0
+2026-01-23 11:50:17,888 pyclaw.fileio INFO CLAW: 304 - Wrote out solution in format vtk for time t=200.0
+2026-01-23 11:50:22,053 pyclaw.fileio INFO CLAW: 366 - Read in solution for time t=400.0
+2026-01-23 11:50:25,052 pyclaw.fileio INFO CLAW: 304 - Wrote out solution in format vtk for time t=400.0
+2026-01-23 11:50:29,365 pyclaw.fileio INFO CLAW: 366 - Read in solution for time t=600.0
+2026-01-23 11:50:31,795 pyclaw.fileio INFO CLAW: 304 - Wrote out solution in format vtk for time t=600.0

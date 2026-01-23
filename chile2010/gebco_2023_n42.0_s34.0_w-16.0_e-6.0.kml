@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document><name>gebco_2023_n42.0_s34.0_w-16.0_e-6.0.kml</name>
+
+<Style id="Path">
+<LineStyle><color>FF00FF00</color><width>3</width></LineStyle>
+<PolyStyle><color>00000000</color></PolyStyle>
+</Style>
+<Placemark><name>gebco_2023_n42.0_s34.0_w-16.0_e-6.0</name>
+<description>  x1 = -15.997917, x2 = -6.002083
+  y1 = 34.002083, y2 = 41.997917</description>
+<styleUrl>#Path</styleUrl>
+<Polygon>
+<tessellate>1</tessellate>
+<altitudeMode>clampToGround</altitudeMode>
+<outerBoundaryIs><LinearRing><coordinates>
+
+-15.997916667,34.002083333,0.000000000
+-6.002083333,34.002083333,0.000000000
+-6.002083333,41.997916667,0.000000000
+-15.997916667,41.997916667,0.000000000
+-15.997916667,34.002083333,0.000000000
+
+</coordinates></LinearRing></outerBoundaryIs>
+</Polygon>
+</Placemark>
+
+</Document>
+</kml>
