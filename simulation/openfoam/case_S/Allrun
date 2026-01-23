@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+if ! command -v blockMesh >/dev/null 2>&1; then
+  echo "OpenFOAM not in PATH. Source your OpenFOAM bashrc first." >&2
+  exit 1
+fi
+
+if [[ -f "$case_dir/0.orig/U" && ! -f "$case_dir/0/U" ]]; then
+  mkdir -p "$case_dir/0"
+  cp "$case_dir/0.orig/U" "$case_dir/0/U"
+fi
+if [[ -f "$case_dir/0.orig/p" && ! -f "$case_dir/0/p" ]]; then
+  mkdir -p "$case_dir/0"
+  cp "$case_dir/0.orig/p" "$case_dir/0/p"
+fi
+
+echo "Running blockMesh..."
+blockMesh -case "$case_dir" 2>&1 | tee "$case_dir/log.blockMesh"
+echo "Running snappyHexMesh..."
+snappyHexMesh -case "$case_dir" -overwrite 2>&1 | tee "$case_dir/log.snappyHexMesh"
+
+echo "Running pimpleFoam..."
+pimpleFoam -case "$case_dir" 2>&1 | tee "$case_dir/log.pimpleFoam"
+
+touch "$case_dir/case.foam"
