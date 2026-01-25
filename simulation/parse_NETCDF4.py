@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Diogo Silva, Frederico Silva, Tomás Pereira
+
 # ============ Parse the NETCDF4 FILE to GeoClaw Format ================== #
 # ==== Authors: Diogo Silva, Frederico Silva, Tomás Pereira ============== #
 # ======================================================================== #

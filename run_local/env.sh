@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Diogo Silva, Frederico Silva, Tomás Pereira
+
 # ======================================================================================================== #
 # ============ This file is configured to setup a python virtual environment to run all tests ============ #
 # ======================================================================================================== #
