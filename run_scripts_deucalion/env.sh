@@ -20,7 +20,7 @@
 set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VENV_PATH="$PROJECT_ROOT/venv/venv_deucalion_os"
+VENV_PATH="$PROJECT_ROOT/venv_deucalion_os"
 
  if [ ! -d "$VENV_PATH" ]; then
      echo "Error: Python virtual environment was not found."

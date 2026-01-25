@@ -1,3 +1,4 @@
 data/
-venv/
+venv_local_os/
+venv_deucalion_os/
 shell.nix

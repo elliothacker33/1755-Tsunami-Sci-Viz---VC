@@ -10,7 +10,7 @@ set -e
 # nix-shell -p gfortran gcc ninja # Required packages for clawpack
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VENV_PATH="$PROJECT_ROOT/venv/venv_local_os"
+VENV_PATH="$PROJECT_ROOT/venv_local_os"
 
 if [ ! -d "$VENV_PATH" ]; then
     echo "Error: Python virtual environment was not found."
