@@ -216,6 +216,41 @@ def plotting_topological(fault, dtopo, x, y, fault_name, fault_params):
 # ========================================= #
 def validation_stats(dtopo, dz, x, y, fault_params, fault_name):
 
+    # 0. Save seismic statistics into a file (<fault_<name>>.txt)
+
+    max_uplift = np.max(dz)
+    max_subsidience = np.min(dz)
+
+    if max_uplift < 0:
+        max_uplift = 0
+
+    if max_subsidience > 0:
+        max_subsidience = 0
+
+    rigidity = 3e10
+    total_moment = 0
+
+    for subfault_data  in fault_params["subfaults"]:
+        segment_length = fault_params['length'] / len(fault_params['subfaults'])
+        area = segment_length * fault_params['width']
+        slip = subfault_data['slip']
+        total_moment += rigidity * area * slip
+
+    M0 = total_moment
+    Mw = (2/3) * np.log10(M0) - 6.07
+
+    file_stats = f"../plots/validation/fault_{fault_name}.txt"
+    with open(file_stats, "w") as f:
+
+        f.write(f"##########################################################\n")
+        f.write(f"# ======== Tsunami statistics for {fault_name} ========= #\n")
+        f.write(f"##########################################################\n")
+        f.write(f"# max_uplift: {max_uplift}\n")
+        f.write(f"# max_subsidience: {max_subsidience}\n")
+        f.write(f"# total_moment (M0): {M0}\n")
+        f.write(f"# Magnitude (Mw): {Mw}\n")
+
+
     # 1. Histogram
     fig, ax = plt.subplots(figsize=(width_inch, height_inch))
 
