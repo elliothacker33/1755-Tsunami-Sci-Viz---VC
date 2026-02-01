@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Diogo Silva, Frederico Silva, Tomás Pereira
+# Copyright (c) 2026 Diogo Silva, Frederico Afonso, Tomás Pereira
 
-# ============ Build GeoClaw Sea Toplogy (et Baptista)  ================== #
-# ==== Authors: Diogo Silva, Frederico Silva, Tomás Pereira ============== #
+# ============ Build GeoClaw Sea Toplogy (et Baptista 2011)  ================== #
+# ==== Authors: Diogo Silva, Frederico Afonso, Tomás Pereira ============== #
 # ======================================================================== #
 
 from clawpack.geoclaw import dtopotools
@@ -13,10 +13,6 @@ import scienceplots
 # =========================== #
 #   Make topology of seabed    #
 # =========================== #
-# The topology defined used 16 seabed faults #
-# We use this paper as reference Far field tsunami simulations of the 1755 Lisbon earthquake: Implications for tsunami
-# hazard to the U.S. East Coast and the Caribbean
-# ============================================== #
 
 # ====================================== #
 #  Elsevier plotting configurations      #
@@ -36,7 +32,6 @@ plt.rcParams.update({
     "figure.autolayout": True
 })
 
-# Define faults with multiple subfaults
 hsf_fault = {
     "longitude": -9.91,
     "latitude": 35.74,
@@ -114,6 +109,7 @@ def build_topology(fault_params, fault_name):
     fault1.subfaults = subfaults_list
     fault1.rupture_type = "static"
 
+    # Resolution of 300*200
     x = np.linspace(-12, -6, 300)
     y = np.linspace(34, 40, 200)
     time_rupture = [0., 1.]

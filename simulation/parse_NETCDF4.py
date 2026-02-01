@@ -1,18 +1,16 @@
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Diogo Silva, Frederico Silva, Tomás Pereira
+# Copyright (c) 2026 Diogo Silva, Frederico Afonso, Tomás Pereira
 
 # ============ Parse the NETCDF4 FILE to GeoClaw Format ================== #
-# ==== Authors: Diogo Silva, Frederico Silva, Tomás Pereira ============== #
+# ==== Authors: Diogo Silva, Frederico Afonso, Tomás Pereira ============== #
 # ======================================================================== #
 
 from netCDF4 import Dataset
 import numpy as np
 import matplotlib.pyplot as plt
-
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 from matplotlib.colors import LightSource
-
 import scienceplots
 import cmocean
 
@@ -44,7 +42,7 @@ class Coordinates:
 def amr_ascii_convert(input_file, output_file, plot_name, coordinates):
 
     root_cdf = Dataset(input_file, "r", format="NETCDF4")
-    print(root_cdf)
+    print(f"Reading: {input_file}")
 
     lons = root_cdf.variables['lon'][:]
     lats = root_cdf.variables['lat'][:]
@@ -64,16 +62,15 @@ def amr_ascii_convert(input_file, output_file, plot_name, coordinates):
 
     nlon = len(lons_region)
     nlat = len(lats_region)
+    dx = abs(lons_region[1] - lons_region[0])
 
     with open(output_file, "w") as f:
-        f.write("# NASA Aerogeophysics ASCII File Format Convention\n")
-        f.write("# Dataset: NetCDF4 elevation subset\n")
-        f.write("# Authors: Diogo Silva, Frederico Silva, Tomás Pereira\n")
-        f.write(f"# Longitude range: {coordinates.lon_min} to {coordinates.lon_max}\n")
-        f.write(f"# Latitude range: {coordinates.lat_min} to {coordinates.lat_max}\n")
-        f.write(f"# Columns: {nlon}, Rows: {nlat}\n")
-        f.write("# Data: Bathymetry / Elevation (meters)\n")
-        f.write("# End of header\n")
+        f.write(f"ncols         {nlon}\n")
+        f.write(f"nrows         {nlat}\n")
+        f.write(f"xllcorner     {lons_region.min()}\n")
+        f.write(f"yllcorner     {lats_region.min()}\n")
+        f.write(f"cellsize      {dx}\n")
+        f.write(f"NODATA_value  -9999\n")
 
         for i in range(nlat-1, -1, -1):
             f.write(" ".join(f"{elv_region[i, j]:.2f}" for j in range(nlon)) + "\n")
@@ -199,3 +196,4 @@ amr_ascii_convert(
     "bathymetry_1755_fine.pdf",
     coords_fine
 )
+

@@ -1,0 +1,20 @@
+# ================================================= #
+#           Statistics for 1755 - Step 0013         #
+#           Sim Time:      65.00 min             #
+# ================================================= #
+
+--- ELEVATION & WAVES ---
+Absolute Max Eta (Wet):       4.9084 m
+Max Wave Crest (Ocean):       3.0500 m
+Max Wave Trough (Eta):       -3.6262 m
+Mean Positive Elevation:      0.1413 m
+
+--- INUNDATION (Land) ---
+Max Flow Depth (h):           2.5852 m
+Max Run-up Elevation (B):     4.9064 m
+Total Area Inundated:     4.5860e-03 m^2
+
+--- DYNAMICS ---
+Max Velocity:                 3.2681 m/s
+Max Momentum Flux:           47.6233 m^3/s^2
+Mean Direction (U, V):    0.017, 0.004

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Diogo Silva, Frederico Silva, Tomás Pereira
+# Copyright (c) 2026 Diogo Silva, Frederico Afonso, Tomás Pereira
 #
 # ======================================================================================================== #
 # ============ This file is configured to setup a python virtual environment to run all tests ============ #

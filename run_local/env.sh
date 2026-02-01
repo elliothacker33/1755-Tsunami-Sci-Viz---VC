@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Diogo Silva, Frederico Silva, Tomás Pereira
+# Copyright (c) 2026 Diogo Silva, Frederico Afonso, Tomás Pereira
 
 # ======================================================================================================== #
 # ============ This file is configured to setup a python virtual environment to run all tests ============ #
 # ======================================================================================================== #
 
-set -e
+#set -e
 
 # NixOs
 # nix-shell -p gfortran gcc ninja # Required packages for clawpack
@@ -26,8 +26,11 @@ if [ ! -d "$VENV_PATH" ]; then
     pip install setuptools wheel meson-python
     pip install --no-build-isolation clawpack -v
     pip install netcdf4 cmocean cartopy xarray
+
 else
     echo "Virtual environment already exists."
     source "$VENV_PATH/bin/activate"
 fi
+
+export CLAW="$PROJECT_ROOT/clawpack"
 
