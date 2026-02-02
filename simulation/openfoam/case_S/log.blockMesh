@@ -1,0 +1,76 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  11
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 11-e1fc8c682ae6
+Exec   : blockMesh -case /work/simulation/openfoam/case_S
+Date   : Jan 23 2026
+Time   : 16:07:20
+Host   : "56d9af37b11a"
+PID    : 218
+I/O    : uncollated
+Case   : /work/simulation/openfoam/case_S
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reading "blockMeshDict"
+
+Creating block mesh from
+    "system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.05 .. 0.05
+        j : 0.025
+        k : 0.1
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (-0.5 -0.5 -0.05) (7.5 0.5 0.05)
+  nPoints: 13202
+  nCells: 6400
+  nFaces: 25800
+  nInternalFaces: 12600
+----------------
+Patches
+----------------
+  patch 0 (start: 12600 size: 40) name: inlet
+  patch 1 (start: 12640 size: 40) name: outlet
+  patch 2 (start: 12680 size: 160) name: top
+  patch 3 (start: 12840 size: 160) name: bottom
+  patch 4 (start: 13000 size: 6400) name: front
+  patch 5 (start: 19400 size: 6400) name: back
+
+End
+

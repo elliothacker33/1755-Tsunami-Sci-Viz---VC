@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+rm -rf "$case_dir"/constant/polyMesh
+rm -rf "$case_dir"/[1-9]* "$case_dir"/[0-9]*.*
+rm -rf "$case_dir"/processor*
+rm -f "$case_dir"/log.*
+rm -f "$case_dir"/case.foam
+rm -f "$case_dir"/0/cellLevel "$case_dir"/0/pointLevel

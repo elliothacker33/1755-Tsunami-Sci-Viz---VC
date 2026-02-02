@@ -4,3 +4,9 @@ venv_local_os/
 venv_deucalion_os/
 clawpack/
 shell.nix
+
+# Ignore OpenFOAM case directories
+simulation/openfoam/case_3D/
+simulation/openfoam/case_M/
+simulation/openfoam/case_L/
+simulation/openfoam/case_S_2cyl/
